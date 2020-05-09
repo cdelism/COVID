@@ -1,0 +1,90 @@
+<html>
+  <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+          ['Ungiuja', 79],
+          ['Pemba', 7],
+          ['Dar-es-salam', 43],
+          ['Arusha',4 ],
+          ['Mwanza', 12],
+          ['Mbea', 3],
+          ['Kilimanjaro', 3],
+          ['Pwani', 4],
+          ['Tanga',3 ],
+          ['Manyara', 3],
+          ['Tabora', 1],
+          ['Dodoma', 5],
+          ['Ruvuma', 4],
+          ['Morogoro',3 ],
+          ['Lindi', 1,],
+          ['Mtwara', 1],
+          ['Kagera',2 ],
+          ['Rukwa', 2],
+          
+        ]);
+
+        // Set chart options
+        var options = {'title':'COVID-19 graphical representation in Tanzania',
+                       'width':350,
+                       'padding':5,
+                       'height':300};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div style="background-color: pink;text-align:center; padding:5px; margin-bottom:3px; width: 100%"> <h3 style="background: pink; font-size: 20px">
+            <center>COVID 19 DATA OF ZANZIBAR</center></h3></div>
+           
+                    <h4 style="font-style: normal"><strong>Click bars to see more inf </strong></h4>
+                   
+           
+    <div id="chart_div" style="width: 50%">
+    </div>
+            <p style="font-style:italic">based on data available April.19.2020</p>
+
+            
+    </div>
+    
+    <div class="container">
+    <h4 ><strong>Few tip to protect oneself against COVID 19 </strong></h4>
+            <P>
+                    STAY home as much as you can</P>
+                   <p>KEEP a safe distance</p>
+                    <p>WASH hands often</p>
+                    <p>COVER your cough</p>
+                   <p> SICK? Call ahead   <strong>190</strong></p>
+            </P>
+            </div>
+    
+    <div style="background-color: #e5e5e5;text-align:center; padding:10px; margin-top:220px;">@ copy right suzaYothmapper.com</div>
+  </body>
+</html>
