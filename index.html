@@ -4,239 +4,295 @@
 <html>
     <title>Covid 19 data of zanzibar</title>
     <head>
-      <?php include("link.php") ?>
-        <style>
-            body{
-                padding: 0;
-                margin: 0;
-            }
-            #mapCanvas {
-                height: 100%;
-                width: 100%;
-            }
-            #mapCanvas {
-                margin-right: 150px;
-      }
-      @media print {
-         #mapCanvas {
-          height: 500px;
-          margin: 0;
-      }}
-     
-      
-
+        <link rel="stylesheet" href="dash.css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+       
+        <link rel="stylesheet" href="b.css">
         
-        #floting-panel {
-        font-family: 'Roboto','sans-serif';
-        line-height: 30px;
-        padding-left: 10px;
-            }
+        <link rel="stylesheet" href="style.css">
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta charset="utf-8">
+          <!--Load the AJAX API-->
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		<script type="text/javascript">
 
-     #floting-panel select, #floting-panel input {
-        font-size: 15px;
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+          ['Chakechake', 4],
+          [' Magharib A', 11],
+          ['Kaskazini A', 6],
+          ['Kaskazini B', 0],
+          ['Kati', 9 ],
+          ['Kusini', 5 ],
+          ['Magharib B', 26],
+          ['Micheweni', 2],
+          ['Mjini' ,28 ],
+          ['Mkoani', 4],
+          ['Wete', 3]
+        ]);
+
+        // Set chart options
+        var options = {'title':'COVID-19 confirmed cases in Zanzibar based on District',
+                       'width':550,
+                       'padding':5,
+                       'height':300};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
       }
+    </script>
+	<script type="text/javascript">
 
-        #floting-panel select {
-        width: 100%;
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChartTZ);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChartTZ() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+          ['Ungiuja', 79],
+          ['Pemba', 7],
+          ['Dar-es-salam', 43],
+          ['Arusha',4 ],
+          ['Mwanza', 12],
+          ['Mbea', 3],
+          ['Kilimanjaro', 3],
+          ['Pwani', 4],
+          ['Tanga',3 ],
+          ['Manyara', 3],
+          ['Tabora', 1],
+          ['Dodoma', 5],
+          ['Ruvuma', 4],
+          ['Morogoro',3 ],
+          ['Lindi', 1,],
+          ['Mtwara', 1],
+          ['Kagera',2 ],
+          ['Rukwa', 2],
+          
+        ]);
+
+        // Set chart options
+        var options = {'title':'COVID-19 graphical representation in Tanzania',
+                       'width':550,
+                       'padding':5,
+                       'height':300};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_divtz'));
+        chart.draw(data, options);
       }
-
-      lfieldset{
-         height: 98%;
-        float: right;
-        width: 140px;
-        overflow: auto;
-      }
-      #floting-panel {
-      float: none;
-          width: auto;
-        }
-
-        #floting-panel i {
-        font-size: 12px;
-        }
-        @media only screen and (max-width:620px){
-            .fieldset, .mapCanvas{
-                width:100%;
-            }
-        }
-		ul {
-		  list-style-type: none;
-		  margin: 0;
-		  padding: 0;
-		}
-
-		li a {
-		  display: block;
-		  width: 100%;
-		  background-color: #dddddd;
-		}
-		
-		.dropbtn{
-			background-color:red
-		}
-		
-		.dropdown-content a{
-			text-decoration:none
-		}
-		
-		/* The Overlay (background) */
-.overlay {
-  /* Height & width depends on how you want to reveal the overlay (see JS below) */   
-  height: 100%;
-  width: 0;
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  background-color: rgb(0,0,0); /* Black fallback color */
-  background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
-  overflow-x: hidden; /* Disable horizontal scroll */
-  transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
-}
-
-/* Position the content inside the overlay */
-.overlay-content {
-  position: relative;
-  top: 25%; /* 25% from the top */
-  width: 100%; /* 100% width */
-  text-align: center; /* Centered text/links */
-  margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
-}
-
-/* The navigation links inside the overlay */
-.overlay a {
-  padding: 8px;
-  text-decoration: none;
-  font-size: 36px;
-  color: #818181;
-  display: block; /* Display block instead of inline */
-  transition: 0.3s; /* Transition effects on hover (color) */
-}
-
-/* When you mouse over the navigation links, change their color */
-.overlay a:hover, .overlay a:focus {
-  color: #f1f1f1;
-}
-
-/* Position the close button (top right corner) */
-.overlay .closebtn {
-  position: absolute;
-  top: 20px;
-  right: 45px;
-  font-size: 60px;
-}
-
-/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
-@media screen and (max-height: 450px) {
-  .overlay a {font-size: 20px}
-  .overlay .closebtn {
-    font-size: 40px;
-    top: 15px;
-    right: 35px;
-  }
-}
-        </style>
+    </script>
+        
     </head>
     <body>
-            <div style="background-color:lightblue;text-align:center; padding:5px; margin-bottom:3px;"> <h3 style="background: ; font-size: 20px">
-                    <center style="color:white;font-size:24px">COVID 19 DATA OF ZANZIBAR</center></h3></div>
-                    <div class="dropdown">
-                    <button class="dropbtn" style="align-content: right">Select Date</button>
-                    <div class="dropdown-content">
-                   <a href="april19.html">april.19. 2020</a>
-                
-                    <a href="april16.html">april.16.2020</a>
-                    <a href="april20.html">april.20.2020</a>
-
-                       </div>
-                      
-                       </div>
-						<div class="dropdown" >
-                            <button class="dropbtn" >Map keys</button>
-                            <div class="dropdown-content" style="width:100%">
-                                
-									<a href="#home"><img src="http://maps.google.com/intl/en_us/mapfiles/ms/micons/red-dot.png" style="height:20px"> Highly affected</a>
-									
-									<a href="#news"><img src="http://maps.google.com/intl/en_us/mapfiles/ms/micons/purple-dot.png" style="height:20px"> Few cases</a>
-									<a href="#contact"><img src="http://maps.google.com/mapfiles/kml/pal2/icon7.png" style="height:20px"> Patients </a>
-									<a href="#about"><img src="https://maps.google.com/mapfiles/kml/pal2/icon2.png" style="height:20px"> Quarantine</a>
-							
-                            </div>
-                              
-						</div>
-                               <div class="dropdown">
-                                    <button class="dropbtn" style="align-content: right" onclick="openNav()">Graphic view</button>
-                                    <div class="dropdown-content">
-                                   <a href="graph.html">For Zanzibar </a>
-                                         <a href="rspread.html">For Tanzania </a>
-                                  
-                                 </div>
-                                      
-                                </div>
-
-                       <hr style="border-width: 5px; margin-top: 1px; margin-bottom: 2px",>
+        <nav class="navbar navbar-inverse" style="background-color: black;margin-bottom: 1px">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>                        
+                </button>
+                <p class="navbar-brand">Suza Youth Mapper</p>
+              </div>
            
-      
-              <p style=" margin-top: 0px ;margin-left:10px; font-size: 15px"> click markers on map to see the detail</p>
-    
-       
+              <div class="collapse navbar-collapse" id="myNavbar">
+                
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                      <li class="active" ><a href="#"><span class="glyphicon glyphicon-sign-in";></span> About</a></li>
+                    </ul>
+                  </ul>
+                  <ul class="nav navbar-nav navbar-right">
+                        <li class="active" ><a href="#"><span class="glyphicon glyphicon-sign-in";></span> Help</a></li>
+                      </ul>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                          <li class="active"><a href="#"><span class="glyphicon glyphicon-sign-in";></span> Home</a></li>
+                        </ul>
+                   
+                 
+               
+              </div>
+            </div>
+          </nav>
+          
+          
+
+
+
+            <div style="background-color:lightblue;text-align:center; background-image:url(znz.png); padding:5px; margin-bottom:3px;margin-top: 0px"> 
+				<h3 style="background: ; font-size: 20px">
+					<center style="color:WHITE;font-size:24px">COVID-19 DATA OF ZANZIBAR</center>
+				</h3>
+			</div>
+				
+            <div class="dropdown">
+                <button class="dropbtn" style="align-content: right">Select Date</button>
+                <div class="dropdown-content">
+                    <a href="mei7.html">Mei.7.2020</a>
+                    <a href="april28.html">April.28.2020</a>
+                    <a href="april24.html">April.24.2020</a>
+                    <a href="April22.html">April.22.2020</a>
+                    <a href="april20.html">April.20.2020</a
+					<a href="april19.html">April.19. 2020</a>
+					<a href="april16.html">April.16.2020</a>                    
+				</div>
+			</div>
+			
+			
+                       
+            <div class="dropdown">
+                <button class="dropbtn" style="align-content: right">Graphic view</button>
+                <div class="dropdown-content">
+                    <a href="#" onclick="openNav()">For Zanzibar </a>
+					<a href="#" onclick="openNav2()">For Tanzania </a>  
+                </div>
+            </div>
+
+            <hr style="border-width: 5px; margin-top: 1px; margin-bottom: 2px",>
+           
+			<div class="container" style="margin-left: 0%">
+              <p style="font-style: oblique; margin-top: 0px ; font-size: 15px">Click markers on map to see the details</p>
+			</div>
+			
             <div id="mapCanvas"></div>
-            <div style="background-color: #e5e5e5;text-align:center; padding:10px; margin-top:7px;">@ copy right suzaYothmapper.com</div>
+			<div id="legend"><h3>Map Keys</h3></div>
+
+            <div style="line-height:3.5; background-image:url(znz.png);background-color: lightblue;text-align:center;color:black;height:40px;margin-top:1px;">@copyright SUZAyouthMappers</div>
+
+			
+	<!---GRAPHICAL VIEW DATA -->
+			<!--  Zanzibar Graphic view -->
+	<div id="myNav" class="overlay" style="color:white;font-famaily:arial" align="center" >
+		<div  align="center">
+	  <a  style="margin-top:-35px;color:purple;" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+		<div style="background-color: lightblue;background-image:url(znz.png);text-align:center; padding:5px; margin-bottom:3px; width: 100%"> <h3 style=" font-size: 20px">
+				<center style="color:purple;">COVID-19 GRAPHICAL REPRESENTATION IN ZANZIBAR</center></h3>
+		</div>
+		<h4 style="font-style: normal">Click bars to see more info </h4>      
+		<div id="chart_div" >
+		
+		</div>
+		<p style="font-style:italic">Based on data available April.19.2020</p>   
+
+		<div class="container">
+			<h4  style="background-color:green;padding:10px;width:50%" >Few tips to protect oneself against COVID-19</h4>
+				
+					   <P style="border:1px solid green;width:50%"> <span > * </span> STAY HOME AS MUCH AS YOU CAN</P>
+					   <p style="border:1px solid green;width:50%"> <span > * </span> KEEP A SAFE DISTANCE</p>
+						<p style="border:1px solid green;width:50%">  <span > * </span>  WASH HANDS OFTEN</p>
+						<p style="border:1px solid green;width:50%">  <span > * </span> COVER YOUR COUGH</p>
+					   <p style="border:1px solid green;width:50%">  <span > * </span> SICK? Call AHEAD   <strong>190 </strong> free</p>
+				</P>
+		</div>
+		</div>
+	</div>
+	<!-- end Zanzibar Graphic view -->
+	
+	
+	<!-- Tanzanua Graphic view  -->	
+		<div id="myNav2" class="overlay" style="color:white;font-famaily:arial" align="center" >
+			<div  align="center">
+		 
+		  <a  style="margin-top:-35px;color:purple" href="javascript:void(0)" class="closebtn" onclick="closeNav2()">&times;</a>
+
+		
+
+			<!--Div that will hold the pie chart-->
+			
+			<div style="background-color: lightblue;background-image:url(znz.png);text-align:center; padding:5px; margin-bottom:3px; width: 100%"> <h3 style=" font-size: 20px">
+					<center style="color:purple;">COVID 19 GRAPHICAL REPRESENTATION IN TANZANIA</center></h3>
+			</div>
+			
+			   <h4 style="font-style: normal">Click bars to see more info</h4>
+						   
+				   
+			<div id="chart_divtz" >
+			</div>
+					<p style="font-style:italic">Based on data available April.19.2020</p>
+
+					
+			</div>
+			
+			<div class="container">
+			<h4  style="background-color:green;padding:10px;width:50%" >Few tips to protect oneself against COVID-19</h4>
+				
+					   <P style="border:1px solid green;width:50%"> <span > * </span> STAY HOME AS MUCH AS YOU CAN</P>
+					   <p style="border:1px solid green;width:50%"> <span > * </span> KEEP A SAFE DISTANCE</p>
+						<p style="border:1px solid green;width:50%">  <span > * </span>  WASH HANDS OFTEN</p>
+						<p style="border:1px solid green;width:50%">  <span > * </span> COVER YOUR COUGH</p>
+					   <p style="border:1px solid green;width:50%">  <span > * </span> SICK? Call AHEAD   <strong>190 </strong> free</p>
+				</P>
+		</div>
+			
+	</div><!-- end Tanzanua Graphic view  -->
 			
 			
-	<!-- The overlay -->
-	
-<div id="myNav" class="overlay" style="color:white;font-famaily:arial" align="center" >
-	<div  align="center">
-  <!-- Button to close the overlay navigation -->
-  <a  style="margin-top:-30px;color:white" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
-  <!-- Overlay content -->
-
-    <!--Div that will hold the pie chart-->
+			
+			
+			
 	
-    <div style="background-color: lightblue;text-align:center; padding:5px; margin-bottom:3px; width: 100%"> <h3 style=" font-size: 20px">
-            <center>COVID 19 DATA OF ZANZIBAR</center></h3>
-	</div>
-	<h4 style="font-style: normal">Click bars to see more info </h4>      
-    <div id="chart_div" >
-	
-    </div>
-    <p style="font-style:italic">based on data available April.19.2020</p>   
+	<script>
+			/* Open when someone clicks on the span element */
+			function openNav() {
+			  document.getElementById("myNav").style.width = "100%";
+			}
 
-		 <div class="container">
-    <h4 ><strong>Few tip to protect oneself against COVID 19 </strong></h4>
-            <P>
-                    STAY home as much as you can</P>
-                   <p>KEEP a safe distance</p>
-                    <p>WASH hands often</p>
-                    <p>COVER your cough</p>
-                   <p> SICK? Call ahead   <strong>190</strong></p>
-            </P>
-    </div>
-	</div>
-</div>
-    
+			/* Close when someone clicks on the "x" symbol inside the overlay */
+			function closeNav() {
+			  document.getElementById("myNav").style.width = "0%";
+			}
+	</script>
+	
+	<script>
+			/* Open when someone clicks on the span element */
+			function openNav2() {
+			  document.getElementById("myNav2").style.width = "100%";
+			}
+
+			/* Close when someone clicks on the "x" symbol inside the overlay */
+			function closeNav2() {
+			  document.getElementById("myNav2").style.width = "0%";
+			}
+	</script>		
+			
    
-			
-			
-
-  
-  
-  <!-- end of layour overlay -->
-  
-    <div style="background-color: #e5e5e5;text-align:center; padding:10px; margin-top:240px;">@ copy right suzaYothmapper.com</div>
-
-
-
-</div>
-
-
-
-	
-    </body>
-    </html>
-
     <script>
             function initMap() {
                 var map;
@@ -253,17 +309,17 @@
                 var markers = [
                     ['Kidimni Zanzbar', -6.127679, 39.304317,'http://maps.google.com/mapfiles/kml/pal2/icon7.png'],
                    ['Migombani', -6.190347,39.210270,"http://maps.google.com/intl/en_us/mapfiles/ms/micons/purple-dot.png"],
-                   ['Mwanakwerekwe', -6.178071,39.225285,"http://maps.google.com/intl/en_us/mapfiles/ms/micons/red-dot.png"],
-                   ['Mwera',-6.147564532853208,39.259747019116205,"http://maps.google.com/intl/en_us/mapfiles/ms/micons/red-dot.png"],
+                   ['Mwanakwerekwe', -6.178071,39.225285,"http://maps.google.com/intl/en_us/mapfiles/ms/micons/purple-dot.png"],
+                   ['Mwera',-6.147564532853208,39.259747019116205,"http://maps.google.com/intl/en_us/mapfiles/ms/micons/purple-dot.png"],
                    ['Bububu Kijichi', -6.093881,39.225767,"http://maps.google.com/intl/en_us/mapfiles/ms/micons/purple-dot.png"],
                    ['kwamchina', -6.184321,39.220848,"http://maps.google.com/intl/en_us/mapfiles/ms/micons/purple-dot.png"],
                    ['JKU SCHOOL', -6.134422, 39.217728,'http://maps.google.com/mapfiles/kml/pal2/icon7.png'],
                    ['Pongwe', -6.048040,39.404783,"http://maps.google.com/intl/en_us/mapfiles/ms/micons/purple-dot.png"],
                    ['Bumbwisudi', -6.057428,39.267311,"http://maps.google.com/intl/en_us/mapfiles/ms/micons/purple-dot.png"],
-                   ['Fuoni', -6.182670,39.249831,"http://maps.google.com/intl/en_us/mapfiles/ms/micons/red-dot.png"],
+                   ['Fuoni', -6.182670,39.249831,"http://maps.google.com/intl/en_us/mapfiles/ms/micons/purple-dot.png"],
                    ['mtendeni', -6.162692,39.195512,"http://maps.google.com/intl/en_us/mapfiles/ms/micons/purple-dot.png"],
                    ['Kibweni', -6.113639,39.215396,"http://maps.google.com/intl/en_us/mapfiles/ms/micons/purple-dot.png"],
-                   ['Magogoni', -6.159270,39.234511,"http://maps.google.com/intl/en_us/mapfiles/ms/micons/red-dot.png"],
+                   ['Magogoni', -6.159270,39.234511,"http://maps.google.com/intl/en_us/mapfiles/ms/micons/purple-dot.png"],
                    ['Kwarara', -6.197638,39.240366,"http://maps.google.com/intl/en_us/mapfiles/ms/micons/purple-dot.png"],
                    ['Kilimahewa juu', -6.161227,39.222768,"http://maps.google.com/intl/en_us/mapfiles/ms/micons/purple-dot.png"],
                    ['Amani', -6.165366,39.225000,"http://maps.google.com/intl/en_us/mapfiles/ms/micons/purple-dot.png"],
@@ -367,24 +423,24 @@
 
                     
                     ['<div class="info_content">' +
-                    '<h1 style="background: pink">Kilimahewa juu</h1>' +
+                    '<h4 style="background: pink">Kilimahewa juu</h4>' +
                     '<p><h3>confirmed cases <h2>1</h2>.</p>' +
                     '</div>'],
 
                     
                     ['<div class="info_content">' +
-                    '<h1 style="background: pink">Amani</h1>' +
-                    '<p><h3>confirmed cases <h2>1</h2>.</p>' +
+                    '<h4 style="background: pink">Amani</h4>' +
+                    '<p>confirmed cases 1 </p>' +
                     '</div>'],
 
                     ['<div class="info_content">' +
                     '<h3 style="background: pink">Kidoti</h3>' +
-                    '<p><h3>confirmed cases <h2>1</h2>.</p>' +
+                    '<p>confirmed cases 1</p>' +
                     '</div>'],
 
                     ['<div class="info_content">' +
                     '<h3 style="background: pink">Jangombe</h3>' +
-                    '<p><h3>confirmed cases <h2>1</h2>.</p>' +
+                    '<p>confirmed cases 1</p>' +
                     '</div>'],
 
                     ['<div class="info_content">' +
@@ -393,12 +449,12 @@
                     '</div>'],
 
                     ['<div class="info_content">' +
-                    '<h3 style="background: pink">ZANZIBAR</h3>' +
-                    '<p><h4>Total casesd 83</h4><h4>total recover 4</h4> <h4>active case 76</h4> <h5 style="background: red">total death 3</h5></p>' +
+                    '<h6 style="background: pink">ZANZIBAR</h6>' +
+                    '<p>Total casesd 134<p>total recover 16</p> <p>active cases 113</p> <h5 style="background: red">total death 5</p>' +
                     '</div>'],
                     ['<div class="info_content">' +
-                    '<h1 style="background: pink">chukwani</h1>' +
-                    '<p><h3>confirmed cases <h2>1</h2>.</p>' +
+                    '<h4 style="background: pink">chukwani</h4>' +
+                    '<p>confirmed cases 1 </p>' +
                     '</div>'],
 
                     ['<div class="info_content">' +
@@ -412,33 +468,33 @@
                     '</div>'],
 
                     ['<div class="info_content">' +
-                    '<h3 style="background: pink">Mbweni</h3>' +
+                    '<h4 style="background: pink">Mbweni</h4>' +
+                    '<pconfirmed cases  1</p>' +
+                    '</div>'],
+
+                    ['<div class="info_content">' +
+                    '<h4 style="background: pink">Mwakaje</h4>' +
+                    '<p>confirmed cases 1 </p>' +
+                    '</div>'],
+
+                    ['<div class="info_content">' +
+                    '<h4 style="background: pink">Michenzani</h4>' +
                     '<p><h3>confirmed cases <h2>1</h2>.</p>' +
                     '</div>'],
 
                     ['<div class="info_content">' +
-                    '<h1 style="background: pink">Mwakaje</h1>' +
+                    '<h4 style="background: pink">Mkunazini</h4>' +
                     '<p><h3>confirmed cases <h2>1</h2>.</p>' +
                     '</div>'],
 
                     ['<div class="info_content">' +
-                    '<h1 style="background: pink">Michenzani</h1>' +
-                    '<p><h3>confirmed cases <h2>1</h2>.</p>' +
-                    '</div>'],
-
-                    ['<div class="info_content">' +
-                    '<h1 style="background: pink">Mkunazini</h1>' +
-                    '<p><h3>confirmed cases <h2>1</h2>.</p>' +
-                    '</div>'],
-
-                    ['<div class="info_content">' +
-                    '<h1 style="background: pink">Mbuzini</h1>' +
+                    '<h4 style="background: pink">Mbuzini</h4>' +
                     '<p><h3>confirmed cases <h2>1</h2>.</p>' +
                     '</div>'],
 
                       ['<div class="info_content">' +
-                    '<h1 style="background: pink">Pemba</h1>' +
-                    '<p><h3>confirmed cases <h2>7</h2>.</p>' +
+                    '<h4 style="background: pink">Pemba</h4>' +
+                    '<p>confirmed cases 12.</p>' +
                     '</div>']
                 ];
                     
@@ -479,11 +535,48 @@
                     this.setZoom(9);
                     google.maps.event.removeListener(boundsListener);
                 });
+				
+				var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+        var icons = {
+          parking: {
+            name: ' Summary',
+            icon: 'http://maps.google.com/intl/en_us/mapfiles/ms/micons/red-dot.png'
+          },
+          library: {
+            name: ' Confirmed cases',
+            icon: 'http://maps.google.com/intl/en_us/mapfiles/ms/micons/purple-dot.png'
+          },
+          info: {
+            name: ' Patients Center',
+            icon: 'http://maps.google.com/mapfiles/kml/pal2/icon7.png'
+          },
+          inofr: {
+            name: ' Quarantine Center',
+            icon: 'https://maps.google.com/mapfiles/kml/pal2/icon2.png'
+          }
+        };
+
+		var legend = document.getElementById('legend');
+        for (var key in icons) {
+          var type = icons[key];
+          var name = type.name;
+          var icon = type.icon;
+          var div = document.createElement('div');
+          div.innerHTML = '<img src="' + icon + '"> ' + name;
+          legend.appendChild(div);
+        }
+
+        map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
                 
             }
             // Load initialize function
             google.maps.event.addDomListener(window, 'load', initMap);
             </script>
+ </body>
+	
+	
+    </html>
+
 
 
 
